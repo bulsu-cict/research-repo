@@ -1,0 +1,40 @@
+REQUIREMENTS 
+PHP 8.1 and above
+extension=gd
+extension=zip
+
+sudo apt update
+sudo apt install -y php php-common php-cli php-gd php-mysql php-curl php-intl php-mbstring php-bcmath php-xml php-zip
+sudo apt install -y curl
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer
+
+npm install
+composer global require laravel/installer
+composer update
+cp .env.example .env or copy .env.example .env
+php artisan key:generate
+php artisan storage:link
+php artisan migrate
+php artisan db:seed --class=UsersTableSeeder
+php artisan serve
+
+
+composer require intervention/image
+
+
+for laravel excel
+composer require maatwebsite/excel
+composer require psr/simple-cache:^2.0 maatwebsite/excel { if theres an error }
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
+
+
+options 
+php artisan vendor:publish --tag=config
+composer update
+composer self-update
+composer clear-cache
+composer remove phpoffice/phpexcel
+composer require phpoffice/phpspreadsheet
+
+composer require barryvdh/laravel-dompdf
+php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
